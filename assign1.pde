@@ -22,14 +22,27 @@ void setup () {
   treasure=loadImage("img/treasure.png");
   hp=loadImage("img/hp.png");
 
-
 }
+
+
+
 
 void draw() {
   image(bg1,x1,0);
   image(bg2,x1-640,0);
-  x1++;
-  x1%=1280;
+  if(x1<=640){
+    image(bg1,x1,0);
+    image(bg2,x1-640,0);
+  }
+  if(x1>640){
+    x1=-640;
+  }
+  if(x1<0){
+    image(bg1,x1,0);
+    image(bg2,x1+640,0);
+  }
+  x1++;  
+
   //background
   
   image(fighter,580,240);
